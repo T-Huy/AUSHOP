@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Quên mật khẩu</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="Content-Security-Policy">
+
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+<!-- Bootstrap CSS -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/../fix/bootstrap.min.css}">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-6 offset-3 mt-5">
+				<a th:href="@{/home}" class="fa fa-home"
+					style="font-size: 50px; text-decoration: none; color: gray;"></a>
+			</div>
+			<div class="alert alert-success col-6 offset-3" role="alert" th:if="${message}" th:text="${message}"></div>
+			<div class="alert alert-danger col-6 offset-3" role="alert" th:if="${error}" th:text="${error}"></div>			
+			<div class="col-6 offset-3"
+				style="border: none; box-shadow: 0 0 2px gray; border-radius: 8px;">
+				<form th:action="@{/confirmOtpRegister}" class="p-3" method="post" th:object="${KhachHang}">
+					<input type="text" hidden="hidden" th:field="*{email}" />
+					<input type="text" hidden="hidden" th:field="*{sdt}" />
+					<input type="text" hidden="hidden" th:field="*{passwd}" />
+					<input type="text" hidden="hidden" th:field="*{gioiTinh}" />
+					<input type="text" hidden="hidden" th:field="*{diaChi}" />
+					<input type="text" hidden="hidden" th:field="*{hoTen}" />
+					<div class="form-group text-center">
+						<label for="otp" style="font-weight: 700;">Hãy nhập mã
+							OTP đã gửi đến Email của bạn</label> <input type="text" maxlength="6"
+							name="otp" id="otp" class="form-control" />
+					</div>
+					<button class="btn btn-primary text-center">Xác nhận</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="/../fix/jquery-3.5.1.slim.min.js"></script>
+		<script src="/../js/popper.min.js"></script>
+		<script src="/../js/bootstrap.min.js"></script>
+</body>
+
+</html>
